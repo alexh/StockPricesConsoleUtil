@@ -80,34 +80,35 @@ public class Main {
 		
 		String input = "stocks";
 		Scanner reader = new Scanner(System.in);  // Reading from System.in
-		while (!input.equals("quit")){
-			System.out.println("Type 'quit' to quit, Type 'add TICK' to add a stock, Type 'stocks' to see stock prices, Type 'stocks 10 20' to refresh prices every 10 seconds for 20 seconds");
-			input = reader.nextLine(); 
-			if (input.equals("stocks")){
-				PrintStocks(args[0]);
-			}
-			if (input.substring(0, 3).contains("add")){
-				try
-				{
-				    FileWriter fw = new FileWriter(args[0],true); //the true will append the new data
-				    fw.write("," + input.substring(4));//appends the string to the file
-				    fw.close();
-				}
-				catch(IOException ioe)
-				{
-				   System.out.println("Couldn't add");
-				}
-				System.out.println("Current Watchlist: ");
-				try {
-					List<String> stocks = WatchlistReader.ReadWatchlist(args[0]);
-					for (String s : stocks){
-						System.out.print(s + ",");
-					}
-				} catch (FileNotFoundException e) {
-				}
-				System.out.println("");
-			}
-		}
+//		while (!input.equals("quit")){
+//			System.out.println("Type 'quit' to quit, Type 'add TICK' to add a stock, Type 'stocks' to see stock prices, Type 'stocks 10 20' to refresh prices every 10 seconds for 20 seconds");
+//			input = reader.nextLine(); 
+//			if (input.equals("stocks")){
+//				PrintStocks(args[0]);
+//			}
+//			if (input.substring(0, 3).contains("add")){
+//				try
+//				{
+//				    FileWriter fw = new FileWriter(args[0],true); //the true will append the new data
+//				    fw.write("," + input.substring(4));//appends the string to the file
+//				    fw.close();
+//				}
+//				catch(IOException ioe)
+//				{
+//				   System.out.println("Couldn't add");
+//				}
+//				System.out.println("Current Watchlist: ");
+//				try {
+//					List<String> stocks = WatchlistReader.ReadWatchlist(args[0]);
+//					for (String s : stocks){
+//						System.out.print(s + ",");
+//					}
+//				} catch (FileNotFoundException e) {
+//				}
+//				System.out.println("");
+//			}
+//		}
+		PrintStocks(args[0]);
 		reader.close();
 		
 		
